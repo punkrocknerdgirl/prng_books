@@ -1,0 +1,210 @@
+/* Report navigation */
+.report-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 7px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 22px rgba(80, 60, 82, 0.10);
+}
+
+.report-nav-title {
+  color: var(--main);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-left: 10px;
+  white-space: nowrap;
+}
+
+.report-nav-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  text-decoration: none;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 9px 13px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  color: var(--main);
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+
+.nav-btn:hover {
+  border-color: var(--main);
+  transform: translateY(-1px);
+}
+
+.nav-btn.active {
+  background: var(--main);
+  color: #fff;
+  border-color: var(--main);
+}
+
+.nav-btn.secondary {
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+:root {
+  --main: #503c52;
+  --accent: #f1184c;
+  --light: #f7dcc6;
+  --lighter: #fff7f0;
+  --palest: #ffffff;
+  --card: #ffffff;
+  --text: #262335;
+  --muted: #6b6472;
+  --border: #d4896a;
+  --divider: #f7dcc6;
+  --flag: #a8216b;
+  --ok: #2e9599;
+}
+
+body {
+  background: var(--lighter);
+}
+
+.doc-header {
+  background: #ffffff;
+  color: var(--main);
+  border: 2px solid var(--main);
+  display: grid;
+  grid-template-columns: 118px 1fr;
+  column-gap: 28px;
+  row-gap: 8px;
+  align-items: center;
+}
+
+.doc-header::before {
+  content: "";
+  display: block;
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  width: 110px;
+  height: 110px;
+  align-self: center;
+  justify-self: start;
+  background-image: url("https://punkrocknerdgirl.github.io/prngbooks/logo_gbs.png");
+  background-color: #ffffff;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px;
+}
+
+.doc-header h1,
+.doc-header .hsub,
+.doc-header .header-badges,
+.doc-header > div:first-of-type,
+.doc-header > .badge {
+  grid-column: 2;
+}
+
+.doc-header > div:first-of-type {
+  align-self: end;
+}
+
+.doc-header > .badge {
+  grid-row: auto;
+  align-self: start;
+  justify-self: start;
+  margin-top: 8px;
+}
+
+.doc-header h1,
+.doc-header > div:first-of-type h1 {
+  color: var(--main);
+  margin-bottom: 6px;
+}
+
+.doc-header .hsub,
+.doc-header > div:first-of-type .hsub {
+  color: #6b6472;
+  margin-top: 0;
+}
+
+.header-badges {
+  margin-top: 8px;
+}
+
+.hbadge.preparer {
+  background: #fff7f0;
+  color: var(--main);
+  border: 1px solid var(--border);
+}
+
+.badge,
+.hbadge.period,
+.nav-btn.active,
+.rs-badge.issues,
+.rs-badge.review {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.fee-bar,
+.footer {
+  background: var(--main);
+}
+
+@media (max-width: 760px) {
+  .doc-header {
+    grid-template-columns: 86px 1fr;
+  }
+
+  .doc-header::before {
+    width: 78px;
+    height: 78px;
+  }
+}
+
+@media (max-width: 640px) {
+  .report-nav {
+    align-items: stretch;
+    border-radius: 16px;
+    flex-direction: column;
+  }
+
+  .report-nav-title {
+    padding: 4px 8px 0;
+  }
+
+  .report-nav-actions {
+    justify-content: stretch;
+  }
+
+  .nav-btn {
+    flex: 1 1 auto;
+  }
+}
+
+@media print {
+  .report-nav {
+    display: none;
+  }
+
+  .doc-header {
+    border: 1px solid var(--main);
+  }
+}

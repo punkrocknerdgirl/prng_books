@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --main:    #1e5a70;
+  --accent:  #3e9cbf;
+  --light:   #d4eef5;
+  --lighter: #edf7fb;
+  --palest:  #f0f9fc;
+  --card:    #ffffff;
+  --text:    #1a1a1a;
+  --muted:   #666666;
+  --border:  #b8d8e4;
+  --divider: #cce6ef;
+  --flag:    #1e5a70;
+  --ok:      #3e9cbf;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--lighter);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── Layout ── */
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+}
+
+/* ── Header ── */
+.doc-header {
+  background: var(--main);
+  color: #fff;
+  padding: 26px 30px 22px;
+  border-radius: 12px;
+  margin-bottom: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.doc-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.doc-header .hsub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.68);
+}
+.header-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.hbadge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.hbadge.period {
+  background: var(--accent);
+  color: #fff;
+}
+.hbadge.preparer {
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ── Period badge (summary pages) ── */
+.badge {
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+/* ── Intro box ── */
+.intro {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 13px 17px;
+  margin-bottom: 22px;
+  font-size: 14px;
+}
+
+/* ── Bottom line callout (full report) ── */
+.bottom-line {
+  background: var(--lighter);
+  border: 1px solid var(--light);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--main);
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+/* ── Section labels ── */
+.sec-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 22px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sec-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--light);
+}
+
+/* ── Stat cards ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.sc {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.sc .sl {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.sc .sv {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--main);
+}
+.sc .ss {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.sc.flag {
+  border-top: 3px solid var(--flag);
+}
+.sc.flag .sv {
+  color: var(--flag);
+}
+.sc.ok {
+  border-top: 3px solid var(--ok);
+}
+.sc.ok .sv {
+  color: var(--ok);
+}
+
+/* ── Fix grid (summary pages) ── */
+.fix-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.fi {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+}
+.fd {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+/* ── Report sections (full report) ── */
+.report-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.rs-header {
+  background: var(--light);
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.rs-header h3 {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--main);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.rs-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.rs-badge.issues {
+  background: var(--flag);
+  color: #fff;
+}
+.rs-badge.clean {
+  background: var(--ok);
+  color: #fff;
+}
+.rs-badge.review {
+  background: var(--accent);
+  color: #fff;
+}
+.rs-body {
+  padding: 14px 16px;
+}
+.rs-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.block-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.item-list {
+  list-style: none;
+  padding: 0;
+}
+.item-list li {
+  padding: 5px 0 5px 16px;
+  position: relative;
+  font-size: 13px;
+  line-height: 1.5;
+  border-bottom: 1px solid var(--divider);
+}
+.item-list li:last-child {
+  border-bottom: none;
+}
+.item-list.findings li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.item-list.recs li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  top: 5px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+}
+.amount-highlight {
+  font-weight: 700;
+  color: var(--flag);
+}
+.amount-ok {
+  font-weight: 700;
+  color: var(--ok);
+}
+
+/* ── Scope card (full report) ── */
+.scope-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+}
+.scope-card ul {
+  list-style: none;
+  padding: 0;
+}
+.scope-card ul li {
+  padding: 5px 0 5px 20px;
+  position: relative;
+  font-size: 13px;
+  border-bottom: 1px solid var(--divider);
+}
+.scope-card ul li:last-child {
+  border-bottom: none;
+}
+.scope-card ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ── Fee bar ── */
+.fee-bar {
+  background: var(--main);
+  border-radius: 10px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 22px 0 12px;
+}
+.fa {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+.fsub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 4px;
+}
+.fright {
+  text-align: right;
+}
+.fpl {
+  font-size: 13px;
+  color: #fff;
+  margin-bottom: 2px;
+}
+.fps {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ── Fee detail cards ── */
+.fee-det {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.fdc {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 13px;
+}
+.fdl {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+.fdv {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* ── Not included (full report) ── */
+.not-inc {
+  background: var(--palest);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.not-inc strong {
+  color: var(--main);
+}
+
+/* ── Disclaimer ── */
+.disc {
+  font-size: 10px;
+  color: #999;
+  line-height: 1.5;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: 8px;
+}
+
+/* ── Footer ── */
+.footer {
+  background: var(--main);
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  font-size: 11px;
+  padding: 12px 24px;
+  margin-top: 40px;
+}
+.footer strong {
+  color: #fff;
+}
