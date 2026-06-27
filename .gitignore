@@ -1,0 +1,8 @@
+.DS_Store
+
+# Local config / secrets
+.env
+.env.*
+
+# Local/editor junk
+.vscode/
