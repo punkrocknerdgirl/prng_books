@@ -1,0 +1,44 @@
+name: Copy prngbooks into alt_site
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/copy-prngbooks-alt-site.yml
+
+permissions:
+  contents: write
+
+jobs:
+  copy-alt-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out target repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Clone source repo
+        run: |
+          rm -rf /tmp/prngbooks-source
+          git clone --depth 1 https://github.com/punkrocknerdgirl/prngbooks.git /tmp/prngbooks-source
+
+      - name: Copy source into alt_site
+        run: |
+          rm -rf alt_site
+          mkdir -p alt_site
+          rsync -a --delete --exclude='.git' /tmp/prngbooks-source/ alt_site/
+
+      - name: Commit copied files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add alt_site
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Copy prngbooks into alt_site"
+            git push
+          fi
