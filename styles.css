@@ -52,9 +52,9 @@ nav {
 
 /* HERO */
 .hero {
-  min-height: 40vh; 
+  min-height: 640px;
   display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
+  grid-template-columns: minmax(2rem, 1fr) minmax(0, 1120px) minmax(2rem, 1fr);
   padding-top: 68px;
   background: var(--dark);
   position: relative;
@@ -63,35 +63,40 @@ nav {
 .hero::before {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(105deg, rgba(26,10,18,0.94) 0%, rgba(92,31,59,0.75) 50%, transparent 100%);
+  background:
+    linear-gradient(90deg, rgba(26,10,18,0.96) 0%, rgba(92,31,59,0.82) 42%, rgba(26,10,18,0.36) 72%, rgba(26,10,18,0.12) 100%),
+    linear-gradient(to top, rgba(26,10,18,0.82) 0%, rgba(26,10,18,0.18) 42%, transparent 100%);
   z-index: 1;
 }
 .hero-photo {
-  grid-column: 2;
+  grid-column: 1 / -1;
   grid-row: 1;
-  position: relative;
+  position: absolute;
+  inset: 0;
 }
 .hero-photo img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: 64% center;
   display: block;
 }
 .hero-photo::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(to right, var(--dark) 0%, transparent 40%),
-              linear-gradient(to top, var(--dark) 0%, transparent 30%);
+  background: linear-gradient(to right, rgba(26,10,18,0.92) 0%, rgba(26,10,18,0.45) 48%, transparent 78%);
 }
 .hero-content {
-  grid-column: 1;
+  grid-column: 2;
   grid-row: 1;
   position: relative; z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 4rem 0rem 1rem 5rem; 
-  max-width: 780px;
+  justify-content: center;
+  align-self: stretch;
+  min-height: 572px;
+  padding: 2rem 0 2.75rem;
+  max-width: 720px;
+  transform: translateY(-1.25rem);
 }
 .hero-logo {
   width: 200px;
@@ -115,7 +120,7 @@ nav {
   color: #a6537e;
   margin-bottom: 1.5rem;
   font-family: var(--sans);
-  letter-spacing: 0.095em;                  /* Increased from 0.035em to push the width wider */
+  letter-spacing: 0.035em;
   white-space: nowrap;                      
 }
 .hero-tagline {
@@ -403,13 +408,23 @@ footer span { color: var(--pink); }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-photo { grid-column: 1; grid-row: 1; height: 50vh; }
-  .hero-photo::after { background: linear-gradient(to top, var(--dark) 0%, transparent 50%); }
-  .hero-content { grid-column: 1; grid-row: 2; padding: 2.5rem 1.5rem; }
-  .hero-title { font-size: 1.75rem; white-space: normal; } /* Let it wrap naturally on phones */
+  nav { padding: 0 1.25rem; }
+  .nav-brand { font-size: 0.9rem; line-height: 1.1; }
+  .nav-cta { padding: 0.42rem 0.8rem; font-size: 0.68rem !important; letter-spacing: 0.035em; }
+  .nav-links { gap: 0.75rem; }
+  .nav-links li:not(:last-child) { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: 820px; padding-top: 68px; }
+  .hero::before { background: linear-gradient(to bottom, rgba(26,10,18,0.08) 0%, rgba(26,10,18,0.42) 30%, rgba(26,10,18,0.92) 58%, var(--dark) 100%); }
+  .hero-photo { grid-column: 1; grid-row: 1; inset: 0 0 auto; height: 55vh; }
+  .hero-photo img { object-position: 55% center; }
+  .hero-photo::after { background: linear-gradient(to top, var(--dark) 0%, rgba(26,10,18,0.52) 38%, transparent 72%); }
+  .hero-content { grid-column: 1; grid-row: 1; align-self: end; min-height: auto; padding: 0 1.4rem 2.2rem; transform: none; }
+  .hero-logo { width: 150px; margin-bottom: 0.85rem; }
+  .hero-title { font-size: 1.42rem; line-height: 1.15; white-space: normal; }
+  .hero-subtitle { font-size: 1.05rem; letter-spacing: 0.035em; white-space: normal; margin-bottom: 1.1rem; }
+  .hero-tagline { font-size: 0.94rem; line-height: 1.5; margin-bottom: 1.15rem; }
+  .btn-primary, .btn-ghost { font-size: 0.68rem; letter-spacing: 0.055em; padding: 0.72rem 1rem; }
+  .badge { font-size: 0.56rem; letter-spacing: 0.055em; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .work-layout { grid-template-columns: 1fr; gap: 2rem; }
-  nav { padding: 0 1.25rem; }
-  .nav-links li:not(:last-child) { display: none; }
 }
