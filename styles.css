@@ -105,32 +105,29 @@ nav {
   margin-bottom: 1rem;
 }
 .hero-title {
+  width: min(100%, 31rem);
   font-size: clamp(1.25rem, 2.1vw, 1.7rem);
   font-weight: 900;
-  line-height: 1.18;
-  margin: 0.85rem 0 1.35rem;
+  line-height: 1.12;
+  margin: 0.85rem 0 0.2rem;
   color: var(--white);
   letter-spacing: 0;
-  max-width: 760px;
 }
 
 .hero-title .systems {
   color: var(--pink);
 }
 
-.hero-title .chaos {
-  color: var(--mid);
-}
-
 .hero-title .accent { color: var(--pink); }
 .hero-subtitle {
-  font-size: clamp(1.15rem, 2.4vw, 1.6rem);
-  font-weight: 700;
+  width: min(100%, 31rem);
+  font-size: clamp(1.48rem, 3.25vw, 2.38rem);
+  font-weight: 900;
   color: var(--pink);
   margin-bottom: 1.5rem;
   font-family: var(--sans);
-  letter-spacing: 0.04em;
-  line-height: 1.1;
+  letter-spacing: 0.005em;
+  line-height: 0.96;
   white-space: nowrap;
 }
 
@@ -412,9 +409,14 @@ footer {
 footer p {
   font-family: var(--mono);
   font-size: 0.7rem;
-  color: rgba(250,234,243,0.35);
-  letter-spacing: 0.08em;
+  color: rgba(250,234,243,0.55);
+  letter-spacing: 0.04em;
 }
+footer a {
+  color: var(--pink);
+  text-decoration: none;
+}
+footer a:hover { color: var(--light); }
 footer span { color: var(--pink); }
 
 /* RESPONSIVE */
@@ -431,8 +433,8 @@ footer span { color: var(--pink); }
   .hero-photo::after { background: linear-gradient(to top, var(--dark) 0%, rgba(26,10,18,0.52) 38%, transparent 72%); }
   .hero-content { grid-column: 1; grid-row: 1; align-self: end; min-height: auto; padding: 0 1.4rem 2.2rem; transform: none; }
   .hero-logo { width: 150px; margin-bottom: 0.25rem; }
-  .hero-title { font-size: 1.42rem; line-height: 1.15; white-space: normal; }
-  .hero-subtitle { font-size: 1.05rem; letter-spacing: 0.035em; white-space: normal; margin-bottom: 1.1rem; }
+  .hero-title { width: 100%; font-size: 1.36rem; line-height: 1.15; white-space: normal; }
+  .hero-subtitle { width: 100%; font-size: 1.58rem; letter-spacing: 0.005em; white-space: normal; margin-bottom: 1.1rem; }
   .hero-tagline { font-size: 0.94rem; line-height: 1.5; margin-bottom: 1.15rem; }
   .btn-primary, .btn-ghost { font-size: 0.68rem; letter-spacing: 0.055em; padding: 0.72rem 1rem; }
   .badge { font-size: 0.56rem; letter-spacing: 0.055em; }
